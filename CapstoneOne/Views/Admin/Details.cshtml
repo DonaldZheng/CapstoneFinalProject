@@ -1,0 +1,230 @@
+﻿@model CapstoneOne.Models.Customer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StreetName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StreetName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.State)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scheduler)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scheduler)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Anniversary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Anniversary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Activity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Activity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Allergies)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Allergies)
+        </dd>
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Packages)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Packages)
+        </dd>*@
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CustomerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<br />
+<br />
+<h2>Map</h2>
+<style>
+    #map {
+        width: 600px;
+        height: 600px;
+        display: flex;
+        flex: 150px;
+        align-items: center;
+    }
+</style>
+<br />
+<div class="row">
+    <br />
+    <div id="map"></div>
+    <script>
+            var map;
+            var marker;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat:@Model.Latitude, lng:@Model.Longitude},
+                    zoom: 8,
+                    mapTypeId: "roadmap"
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: @Model.Latitude, lng: @Model.Longitude },
+                    map: map
+                });
+
+                //Milwaukee
+                marker = new google.maps.Marker({
+                    position: { lat: 43.039763, lng: -87.907026},
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.039763, lng: -87.907026 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.039060, lng: -87.911430 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.045350, lng: -87.922280 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.045081, lng: -87.922250 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.039304, lng: -87.915196 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.039301, lng: -87.906227 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.0346782, lng: -88.1644215 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.0372971, lng: -87.9018803 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.0317, lng: -87.9165 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.0331, lng: 87.8988 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 43.0137, lng: 87.5255 },
+                    map: map
+                });
+
+
+                //New York
+                marker = new google.maps.Marker({
+                    position: { lat: 40.7484, lng: -73.9857 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 40.6892, lng: -74.0445 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 40.761166, lng: -73.980531 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 40.761700, lng: -73.983010 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: { lat: 40.761670, lng: -73.980520 },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 40.761970, lng: -73.983190},
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 40.761230, lng: 73.827710},
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 40.762438, lng: -73.990028},
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 40.770000, lng: -73.990000
+                    },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 40.723261, lng: -73.998220
+                    },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 40.759280, lng: -73.984211
+                    },
+                    map: map
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 40.723261, lng: -73.998220
+                    },
+                    map: map
+                });
+            }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=@ViewBag.APIkeys&callback=initMap&libraries=&v=weekly" async>
+    </script>
+</div>
